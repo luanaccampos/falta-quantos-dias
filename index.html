@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Dias para RSM</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      background: #f4f4f4;
+    }
+
+    h1 {
+      font-size: 40px;
+    }
+
+    #contador {
+      font-size: 80px;
+      font-weight: bold;
+      color: #d14;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Faltam</h1>
+<div id="contador"></div>
+<h1>dias para o RSM</h1>
+
+<script>
+const dataRSM = new Date("2026-04-17");
+
+function atualizar() {
+  const hoje = new Date();
+  const diff = dataRSM - hoje;
+
+  const dias = Math.ceil(diff / (1000 * 60 * 60 * 24));
+
+  document.getElementById("contador").innerText = dias;
+}
+
+atualizar();
+</script>
+
+</body>
+</html>
