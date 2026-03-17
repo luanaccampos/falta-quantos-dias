@@ -29,18 +29,25 @@
 <h1>dias para a RSM Challenge Internacional 2026</h1>
 
 <script>
-const dataRSM = new Date("2026-04-17");
+  // Abril = 3 (mês começa em 0)
+  const dataRSM = new Date(2026, 3, 17);
 
-function atualizar() {
-  const hoje = new Date();
-  const diff = dataRSM - hoje;
+  function atualizar() {
+    const agora = new Date();
 
-  const dias = Math.ceil(diff / (1000 * 60 * 60 * 24));
+    const diff = dataRSM - agora;
 
-  document.getElementById("contador").innerText = dias;
-}
+    // cálculo de dias (evita número negativo)
+    const dias = Math.max(0, Math.ceil(diff / (1000 * 60 * 60 * 24)));
 
-atualizar();
+    document.getElementById("contador").innerText = dias;
+  }
+
+  // roda imediatamente
+  atualizar();
+
+  // atualiza automaticamente a cada segundo
+  setInterval(atualizar, 1000);
 </script>
 
 </body>
